@@ -10,16 +10,16 @@ VIN_REGEX = re.compile(r'^[A-HJ-NPR-Z0-9]{17}$', re.IGNORECASE)
 class CatalogService:
     """
     Client for the vehicle catalog microservice:
-    Base URL: https://api.carparts.koncpt-ai.tech
+    Base URL: https://api.carpartsai.ae
     - POST /api/vin/lookup: Decodes 17-char VINs to Brand, Model, Model Number, Year, Engine
     - GET  /api/vin/catalog?model_number=...&brand=...: Retrieves vehicle schematics and OEM parts
     """
 
     def _get_base_url(self) -> str:
         try:
-            return current_app.config.get("CATALOG_API_BASE_URL", "https://api.carparts.koncpt-ai.tech")
+            return current_app.config.get("CATALOG_API_BASE_URL", "https://api.carpartsai.ae")
         except Exception:
-            return "https://api.carparts.koncpt-ai.tech"
+            return "https://api.carpartsai.ae"
 
     def is_likely_vin(self, vin: str) -> bool:
         if not vin:
