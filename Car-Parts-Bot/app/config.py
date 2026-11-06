@@ -53,7 +53,7 @@ class AppConfig:
     CHASSIS_API_KEY: str | None = _env("CHASSIS_API_KEY")
 
     # --- Vehicle Catalog Microservice ---
-    CATALOG_API_BASE_URL: str = _env("CATALOG_API_BASE_URL", "https://api.carparts.koncpt-ai.tech")
+    CATALOG_API_BASE_URL: str = _env("CATALOG_API_BASE_URL", "https://api.carpartsai.ae")
 
     # --- E-commerce & Inventory Integration ---
     ECOMMERCE_API_BASE_URL: str = _env("ECOMMERCE_API_BASE_URL") or _env("LOVABLE_API_BASE_URL", "https://carpartsai.ae")
