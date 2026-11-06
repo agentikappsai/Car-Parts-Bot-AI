@@ -1,3 +1,4 @@
+import os
 import sys
 if sys.platform == "win32":
     try:
@@ -32,8 +33,12 @@ def create_app(config: type[AppConfig] | None = None) -> Flask:
         resources={
             r"/*": {
                 "origins": [
-                    "http://localhost:5173",  # frontend dev
-                    "https://koncpt-ai.tech",    # production frontend
+                    o.strip()
+                    for o in os.getenv(
+                        "CORS_ORIGINS",
+                        "http://localhost:5173,https://koncpt-ai.tech,https://bot.carpartsai.ae",
+                    ).split(",")
+                    if o.strip()
                 ]
             }
         }
